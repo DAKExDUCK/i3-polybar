@@ -67,11 +67,10 @@ padding-left = 1
 padding-right = 3
 
 module-margin-left = 2
-module-margin-right = 1
+module-margin-right = 3
 
 tray-position = left
 tray-padding = 2
-tray-transparent = true
 tray-detached = false
 tray-maxsize = 19
 tray-scale = 1
@@ -92,18 +91,18 @@ cursor-scroll = ns-resize
 
 font-0 = fixed:pixelsize=10;1
 font-1 = Unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Siji:pixelsize=10;1
+font-2 = Siji:pixelsize=12
 
 font-3 = Droid Sans:Regular:size=8
 font-4 = Droid Sans:SemiBold:size=8
 font-5 = Droid Sans:Bold:size=8
 font-6 = Droid Sans:Bold:size=11
 font-7 = Droid Sans:Italic:size=8
-font-8 = Terminus:size=14;0
-font-9 = TerminessTTF Nerd Font:size=10;0
+font-8 = Terminus:size=13
+font-9 = TerminessTTF Nerd Font:size=11;1
 font-10 = NotoEmoji Nerd Font:style=Book:scale=12
-font-11 = FiraCode Nerd Font:style=Book:pixelsize=10
-font-12 = Material Icons:style=Book:pixelsize=12
+font-11 = FiraCode Nerd Font:style=Book:pixelsize=12
+font-12 = Material Icons:style=Book:pixelsize=11;1
 
 
 [settings]
@@ -119,11 +118,12 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.secondary}
 # format-prefix-underline = ${colors.secondary}
 
 label-layout = %layout%
+label-layout-font = 9
 # label-layout-underline = ${colors.secondary}
 
 label-indicator-background = ${colors.secondary}
@@ -150,18 +150,21 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
+
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
+label-focused-font = 9
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-font = 9
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
@@ -190,6 +193,7 @@ interval = 0.2
 format-prefix = " "
 format-prefix-foreground = #F7F272 
 label =" %output%"
+label-font = 9
 label-foreground = #FFFFFF
 
 
@@ -200,6 +204,7 @@ format-prefix = ""
 format-prefix-foreground = #f90000
 # format-underline = #f90000
 label = %percentage:2%%
+label-font = 9
 
 
 [module/memory]
@@ -209,6 +214,7 @@ format-prefix = ""
 format-prefix-foreground = ${colors.menucol-yellow}
 # format-underline = ${colors.menucol-yellow}
 label = %percentage_used%%
+label-font = 9
 
 
 [module/wlan]
@@ -216,11 +222,11 @@ type = internal/network
 interface = wlp4s0
 interval = 3.0
 
-format-connected-prefix = ""
-format-connected-prefix-font = 11
+format-connected-prefix = " "
 format-connected-prefix-foreground = #55aa55
 # format-connected-underline = #55aa55
 label-connected = %local_ip%
+label-connected-font = 9
 #label-connected-foreground = #55aa55
 
 format-disconnected = ""
@@ -232,11 +238,12 @@ interface = enp2s0
 interval = 3.0
 
 # format-connected-underline = #55aa55
-format-connected-prefix = ""
+format-connected-prefix = " "
 #format-connected-prefix = 2
 format-connected-prefix-foreground = #55aa55
 label-connected = %local_ip%
-
+label-connected-font=9
+label-font = 9
 format-disconnected = 
 
 
@@ -247,7 +254,8 @@ interval = 1
 click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup
 format-background = ${colors.alt-background}
 format-foreground = ${colors.alt-foreground}
-label = %output:25%
+label = %output%
+label-font = 9
 
 
 [module/pulseaudio]
@@ -255,9 +263,11 @@ type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
 label-volume = %percentage%%
+label-volume-font = 9
 label-volume-foreground = ${root.foreground}
 
 label-muted = muted
+label-muted-font = 9
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -272,10 +282,11 @@ bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 9
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 9
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
 
 [module/alsa]
 type = internal/alsa
@@ -305,6 +316,7 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -322,34 +334,38 @@ format-full-prefix-foreground = ${colors.foreground-alt}
 # format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.light-red}
 ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.menucol-orange}
 ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.light-green}
 #ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 #animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-foreground = ${colors.menucol-orange}
+animation-charging-foreground = ${colors.light-green}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
 #animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-foreground = ${colors.menucol-orange}
+#animation-discharging-foreground = ${colors.menucol-orange}
 animation-discharging-framerate = 750
 
 format-charging = <animation-charging> <label-charging>
 # format-charging-underline = ${colors.menucol-orange}
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 # format-discharging-underline = ${colors.menucol-orange}
 
-label-charging = %percentage%
-#label-charging-font = 0
+label-charging = %percentage%%
+label-charging-font = 9
 
-label-discharging = %percentage%
+label-discharging = %percentage%%
+label-discharging-font = 9
 
 
 [module/temperature]
@@ -363,7 +379,9 @@ format-warn = <ramp> <label-warn>
 # format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
+label-font = 9
 label-warn = %temperature-c%
+label-warn-font = 9
 label-warn-foreground = #f50a4d
 
 ramp-0 = 

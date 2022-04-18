@@ -144,6 +144,11 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+#exec --no-startup-id i3-msg 'workspace 1; exec telegram-desktop'
+#exec --no-startup-id i3-msg 'workspace 2; exec google-chrome-stable'
+#exec --no-startup-id i3-msg 'workspace 3: exec code'
+#exec --no-startup-id i3-msg 'workspace 4; exec urxvt -e htop'
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -209,6 +214,6 @@ bindsym $mod+r mode "resize"
         #status_command i3status --config ~/.config/i3/i3status-small.conf
 #}
 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/forest.jpeg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Firewatch.png
 exec_always --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 exec_always --no-startup-id sh /home/arsen/.config/polybar/launch.sh

@@ -1,7 +1,7 @@
 WIDTH=270
 HEIGHT=274
 BOTTOM=false
-DATE="$(date +"   %a, %d %b    %H:%M:%S ")"
+DATE="$(date +"%H:%M:%S")"
 
 case "$1" in
     --popup)
